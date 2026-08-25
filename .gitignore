@@ -1,0 +1,5 @@
+node_modules/
+*.tgz
+remote-profile-snapshot/
+coverage/
+.DS_Store

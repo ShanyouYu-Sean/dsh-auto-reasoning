@@ -1,0 +1,67 @@
+{
+  "name": "dsh-auto-reasoning",
+  "version": "0.1.0",
+  "description": "A provider-neutral DeepSeek Harness plugin that routes each request to an appropriate reasoning effort.",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "packageManager": "pnpm@10.29.2",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test tests/*.spec.ts",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "prepack": "pnpm check"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "reasoning",
+    "llm-router",
+    "provider-neutral"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShanyouYu-Sean/dsh-auto-reasoning.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShanyouYu-Sean/dsh-auto-reasoning/issues"
+  },
+  "homepage": "https://github.com/ShanyouYu-Sean/dsh-auto-reasoning#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-llm": "^0.1.1-rc.2",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.1",
+    "@deepseek-ai/dsh-llm": "0.1.1-rc.2",
+    "@deepseek-ai/schemastery": "3.18.1",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

@@ -1,0 +1,15 @@
+# Default provider-neutral route. Administrators can override this config in
+# the profile's cordis.patch.yml or replace it with multiple routes.
+- insert:
+    - id: dsh-auto-reasoning
+      name: dsh-auto-reasoning
+      config:
+        routes:
+          - provider: auto-reasoning
+            name: Auto Reasoning
+            upstreamProvider: deepseek-official
+            models:
+              - deepseek-v4-flash
+              - deepseek-v4-pro
+        threshold: 6
+        logDecisions: true
